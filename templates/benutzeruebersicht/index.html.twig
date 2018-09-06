@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Benutzerübersicht{% endblock %}
+{% block head %}
+
+{% endblock %}
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+{% include('sidebar.html.twig') %}	
+			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+				<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+					<h1 class="h2">Benutzerübersicht</h1>
+					<div class="btn-toolbar mb-2 mb-md-0">
+						<div class="btn-group mr-2"></div>
+					</div>
+				</div>
+
+				<div class="table-responsive">
+					<table class="table table-striped table-sm">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Usernummer</th>
+								<th>Username</th>
+								<th>Andere</th>
+								<th>Vorname</th>
+								<th>Nachname</th>
+								<th>Abteilung</th>
+								<th>E-Mail</th>
+								<th>Aktiviert</th>
+								<th>Login Zähler</th>				  
+							</tr>
+						</thead>
+						<tbody>
+							{% for user in Benutzer %}
+								<tr>
+									<td>{{ user.id }}</td>
+									<td>{{ user.usernummer }}</td>
+									<td>{{ user.username }}</td>
+									<td>{{ user.anrede }}</td>
+									<td>{{ user.vorname }}</td>
+									<td>{{ user.nachname }}</td>
+									<td>{{ user.abteilung }}</td>
+									<td>{{ user.email }}</td>
+									<td>
+										{% if user.aktiviert == 0 %}
+											<input type="checkbox" onclick="return false;">
+										{% else %}
+											<input type="checkbox" checked="checked" onclick="return false;">
+										{% endif %}
+									</td>
+									<td>{{ user.logincount }}</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</main>
+		</div> <!-- Diese 3 DIV sollen bleiben, siehe /sidebar.hatml.twig -->
+	</div>
+</div>	
+{% endblock %}

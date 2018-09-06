@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+<style>
+</style>
+
+	<div class="row">	
+		<div class="col-sm">      
+		<h1 align="center">Hallo {{ app.user.anrede }} {{ app.user.nachname }}!</h1>
+		</div>
+	</div>
+	<hr/>
+	<div class="form-group row" style="position:relative;top:50px;">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-2"></div>
+		<div class="col-sm-2">
+			<div class="card" style="width: 18rem;">
+				<div class="card-header">
+				Ihre Persönlichen Kontoinformationen:
+				</div>		
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">Benutzername: <b> {{ app.user.username }}</b></li>
+					<li class="list-group-item">Vorname: <b> {{ app.user.vorname }}</b></li>
+					<li class="list-group-item">Nachname:<b> {{ app.user.nachname }}</b></li>
+					<li class="list-group-item">E-Mail:<b> {{ app.user.email }}</b></li>
+					<li class="list-group-item">Abteilung:<b> {{ app.user.abteilung }}</b></li>
+					<li class="list-group-item">Ihre Rolle:<b>
+						{% if is_granted('ROLE_ADMIN') %}
+							Admin
+							</li><li class="list-group-item">Admin: <a href="/menu" class="btn btn-primary disabled">Benutzerverwaltung</a>
+						{% endif %}
+						{% if is_granted('ROLE_USER') %}
+							User
+						{% endif %}		
+					</b></li>
+				</ul>
+			</div>
+		</div>
+	</div> 
+	<div class="form-group row" style="position:relative;top:50px; ">
+		<div class="col-sm-3"></div>
+		<div class="col-sm-2">
+			<div class="card" style="width: 18rem; height: 15rem;">
+				<div class="card-body">
+					<h5 class="card-title" style="text-align: center; font-weight: bold;">Name ändern</h5>
+					<p class="card-text"style="text-align: center;">Neuer Name? Hier können sie das ändern. Bitte informieren Sie auch die EDV Abteilung so das wir auch überall aktualisieren können.</p>
+					<div style="position: absolute; bottom: 0.1;right: 0.1;"><a href="/menu" class="btn btn-primary disabled">Hier drücken</a></div>
+				</div>
+			</div> 
+		</div>
+		<div class="col-sm-2">
+			<div class="card" style="width: 18rem; height: 15rem;">
+				<div class="card-body">
+					<h5 class="card-title" style="text-align: center; font-weight: bold;">Passwort ändern</h5>
+					<p class="card-text"style="text-align: center;">Sie brauchen neues Passwort? kein Problem, Button drücken und sich ein neues aussuchen.</p>
+					<a href="/menu" class="btn btn-primary disabled">Hier drücken</a>
+				</div>
+			</div> 
+		</div>
+		<div class="col-sm-2">
+			<div class="card" style="width: 18rem; height: 15rem;">
+				<div class="card-body">
+					<h5 class="card-title" style="text-align: center; font-weight: bold;">E-Mail ändern</h5>
+					<p class="card-text"style="text-align: center;">Im Moment hat Ihre E-Mail keine funktion somit besteht kein Grund hier etwas zu ändern</p>
+					<a href="/menu" class="btn btn-primary disabled">Hier drücken</a>
+				</div>
+			</div> 
+		</div>
+		<div class="col-sm-3"></div>
+	</div>	
+{% endblock %}

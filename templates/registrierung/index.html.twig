@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	{% block head_css %}
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	{% endblock %}
+	{% block head_js %}
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	{% endblock %}
+	
+	<head>
+		<meta charset="UTF-8">
+		<title>{% block title %}Registrierung{% endblock %}</title>
+		{% block stylesheets %}{% endblock %}
+	</head>
+	
+	<style>
+		.example-wrapper { margin: 1em auto; max-width: 1700px; width: 95%; font: 18px/1.5 sans-serif; }
+		.example-wrapper code { background: #F5F5F5; padding: 2px 6px; }		
+	</style>
+	
+	<body>
+	{% block body %}
+			<div>
+				<h1 style="position:relative;top:15px;" align="center">Willkommen bei KOBS</h1>
+				</br><hr/>
+			</div>
+			<div class="form-group row" style="position:relative;top:50px;">
+				<div class="col-sm-4"></div>				
+				<div class="col-sm-4" style="background: #FBF2EF;height:600px ;border: 1px solid #d4d4d4;  border-radius: 4px;">
+				<h1 style="text-align: center;">Registrieren</h1>
+					<hr/>
+					<div class="form-group row">
+						<div class="col-sm-6">
+							{{ form_start(form) }}
+								{{ form_row(form.username) 	}}							
+						</div>
+						<div class="col-sm-6">
+								{{ form_row(form.password)	}}
+						</div>
+					</div>
+					<hr/>
+					<div class="form-group row">
+						<div class="col-sm-6">									
+								{{ form_row(form.anrede) 	}}								
+						</div>
+						<div class="col-sm-6"></div>
+					</div>	
+					<div class="form-group row">
+						<div class="col-sm-6">
+								{{ form_row(form.vorname) 	}}								
+						</div>
+						<div class="col-sm-6">
+								{{ form_row(form.nachname)	}}
+						</div>
+					</div>
+					<hr/>
+					<div class="form-group row">
+						<div class="col-sm-6">	
+								{{ form_row(form.email)	 }}						
+						</div>
+						<div class="col-sm-6">
+								{{ form_row(form.abteilung)	 }}
+						</div>
+					</div>						
+					<hr/>
+						<a class="btn btn-secondary btn active" href="/" role="button">zurück</a>
+						<button type="submit" class="btn btn-primary">Registrieren</button>
+						{{ form_end(form) }}
+				</div>
+				<div class="col-sm-4"></div>
+			</div>
+	{% endblock %}
+	</body>
+</html>

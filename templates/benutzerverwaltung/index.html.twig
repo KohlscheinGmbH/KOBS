@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Benutzerverwaltung{% endblock %}
+{% block head %}
+
+{% endblock %}
+{% block body %}
+	<style>
+		.example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+		.example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+	</style> 
+	{% include('sidebar.html.twig') %}
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+					<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+						<h1 class="h2">Benutzerverwaltung</h1>
+						<div class="btn-toolbar mb-2 mb-md-0">
+							<div class="btn-group mr-2"></div>
+						</div>
+					</div>
+					<div class="table-responsive">
+						<table class="table table-striped table-sm">
+							<thead>
+								<tr>
+									<th style="width: 0.1%">ID</th>
+									<th style="width: 0.3%">Usernummer</th>
+									<th style="width: 0.3%">Username</th>
+									<th style="width: 0.2%">Andere</th>
+									<th style="width: 0.9%">Vorname</th>
+									<th style="width: 0.9%">Nachname</th>
+									<th style="width: 0.7%">Abteilung</th>
+									<th style="width: 3.0%">E-Mail</th>
+									<th style="width: 0.3%">Aktiviert</th>
+									<th style="width: 0.8%">Login Zähler</th>	
+									<th style="width: 0.1%"></th>
+									<th style="width: 0.1%"></th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for user in Benutzer %}
+									<form action="#" method="post">
+										<tr>
+											<td>{{ user.id }}</td>
+											<td>{{ user.usernummer }}</td>
+											<td>{{ user.username }}</td>
+											<td>
+												<select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="{{ user.usernummer }}1">
+													<option selected>{{ user.anrede }}</option>
+													<option value="1">Herr</option>
+													<option value="2">Frau</option>
+													<option value="2">k.a.</option>
+												</select>
+											</td>
+											<td><input type="text" class="form-control" id="{{ user.usernummer }}2" value="{{ user.vorname }}"></td>
+											<td><input type="text" class="form-control" id="{{ user.usernummer }}3" value="{{ user.nachname }}"></td>
+											<td>
+												<select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="{{ user.usernummer }}4">
+													<option selected>{{ user.abteilung }}</option>
+													<option value="1">Buchhaltung</option>
+													<option value="2">Einkauf</option>
+													<option value="3">PH</option>
+													<option value="3">IT</option>
+												</select>
+											</td>
+											<td><input type="text" class="form-control" id="{{ user.usernummer }}" value="{{ user.email }}"></td>
+											<td>
+												{% if user.aktiviert == 0 %}
+													<center><input type="checkbox"></center>
+												{% else %}
+													<center><input type="checkbox" checked="checked" ></center>
+												{% endif %}
+											</td>
+											<td><center>{{ user.logincount }}</center></td>
+											<td><a class="btn btn-danger" href="/update/{{ user.id }}/fdgdf/afgd/sdf/sfd"><i class="material-icons">check</i></a></td>
+											<td><a class="btn btn-danger" href="/delete/{{ user.id }}"><i class="material-icons">delete</i></a></td>
+										</tr>
+									</form>
+									<script>
+										function erstelleLink() {
+											var x = document.getElementById("{{ user.usernummer }}2").value;
+											document.getElementById("demo").innerHTML = x;
+										}
+									</script>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</main>
+			</div> <!-- Diese 3 DIV sollen bleiben, siehe /sidebar.hatml.twig -->
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,129 @@
+	<div class="form-group row" style="position:relative;top:25px;">	
+		<div class="col-sm-4">
+			<div class="form-group row">
+				<div class="col-sm-3">
+					<label for="warengrp">Warengruppe</label>
+				</div>	
+				<div class="col-sm-3">
+					<select class="selectpicker" data-live-search="true" data-width="100%">
+					  <option selected>{{ Grunddaten.warengruppe }}</option>
+						{% for ware in Warengruppe %}						
+							<option data-tokens="{{ ware.nr }}">{{ ware.nr }}</option>
+						{% endfor %}
+					</select>
+				</div>
+				<div class="col-sm-6">
+					<input type="text" id="warengrp" style="float:right;" class="form-control" value="12"/>
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-3">
+					<label for="unterwarengrp">Unterwarengruppe</label>
+				</div>
+				<div class="col-sm-3">
+
+					<select class="selectpicker" data-live-search="true" data-width="100%">
+					  <option selected>{{ Grunddaten.unterwarengruppe }}</option>
+					  <option data-tokens="1">1</option>
+					  <option data-tokens="2">2</option>
+					  <option data-tokens="3">3</option>
+					</select>
+				</div>
+				<div class="col-sm-6">
+					<input type="text" id="unterwarengruppe" style="float:right;" class="form-control" value="unterwarengrp"/>
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-3">
+					<label for="mienheitek">Mengeneinheit</label>
+				</div>	
+				<div class="col-sm-3" data-live-search="true">				
+					<select id="" class="selectpicker" data-live-search="true" data-width="100%">
+					  <option selected>{{ Grunddaten.mengeneinheit }}</option>
+					  <option data-tokens="1">1</option>
+					  <option data-tokens="2">2</option>
+					  <option data-tokens="3">3</option>
+					</select>	
+				</div>
+				<div class="col-sm-4">
+					<input type="text" id="menheit" style="float:right;" class="form-control" value="mienheit"/>
+				</div>
+				<div class="col-sm-2">
+					<input type="text" id="menheit" style="float:right;" class="form-control" value="1"/>
+				</div>
+			</div>				
+			<div class="form-group row">
+				<div class="col-sm-3">
+					<label for="mienheitma">Mehrwertsteuer</label>
+				</div>	
+				<div class="col-sm-3">
+					<select class="selectpicker" data-live-search="true" data-width="100%">
+					  <option selected>{{ Grunddaten.mwst }}</option>
+					  <option data-tokens="1">1</option>
+					  <option data-tokens="2">2</option>
+					  <option data-tokens="3">3</option>
+					</select>	
+				</div>
+				<div class="col-sm-4">
+					<input type="text" style="float:right;" class="form-control" value="Mehrwertsteuer 19%"/>
+				</div>
+				<div class="col-sm-2">
+					<input type="text" style="float:right;" class="form-control" value="19 %"/>
+				</div>
+			</div>			
+		</div>
+		<div class="vl"></div> <!-- -------- Vertikale Trennung II -------- -->
+		<div class="col-sm-4">
+			<div class="form-group row" >
+				<div class="col-sm-8">
+					<label for="psatz">%-Satz </label> 
+				</div>	
+				<div class="col-sm-4">
+					<input type="text" style="text-align: right;" id="psatz" class="form-control" value="{{ Grunddaten.psatz }}"/>
+				</div>
+			</div>
+			<div class="form-group row" >
+				<div class="col-sm-8">
+					<label>Aktiv </label>
+				</div>	
+				<div class="col-sm-4">
+					<input type="checkbox" checked="checked" style="position:relative; left:45%;">
+				</div>
+			</div>
+			<div class="form-group row" >
+				<div class="col-sm-8">
+					<label>Für Webshop freigegeben </label>
+				</div>	
+				<div class="col-sm-4">
+					<input type="checkbox" checked="checked" style="position:relative; left:45%;">
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-3" style="background: #FBF2EF; height: 275px; border: 1px solid #d4d4d4; border-radius: 4px;">	<!-- Daten	-->
+			<div class="form-group row"></div>
+			<div class="form-group row">
+				<label class="col-sm-4 col-form-label col-form-label-sm" for="angelegt">Angelegt am</label> 
+			<div class="col-sm-8">
+				<input type="date" class="form-control form-control-sm" id="angelegt" disabled="disabled" value="{{ Artikel.angelegtam }}">
+			</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-4 col-form-label col-form-label-sm" for="avon" >von</label> 
+			<div class="col-sm-8">
+				<input type="text" class="form-control form-control-sm" id="avon" placeholder="{{ Artikel.angelegtvon }}" disabled="disabled">
+			</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-4 col-form-label col-form-label-sm" for="updateam">geändern am</label> 
+			<div class="col-sm-8">
+				<input type="date" class="form-control form-control-sm" id="updateam" disabled="disabled" value="{{ Artikel.updateam }}">
+			</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-4 col-form-label col-form-label-sm" for="updatevon">von</label> 
+			<div class="col-sm-8">
+				<input type="text" class="form-control form-control-sm" id="updatevon" placeholder="{{ Artikel.updatevon }}" disabled="disabled">
+			</div>
+		    </div>
+		</div>
+	</div>

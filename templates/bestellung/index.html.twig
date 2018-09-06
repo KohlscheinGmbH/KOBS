@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ihre Bestellungen{% endblock %}
+
+{% block body %}
+<style>
+    .wrapper { margin: 1em auto; max-width: 1200px; width: 95%; font: 18px/1.5 sans-serif; }
+    .wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+	<div class="wrapper">	  
+		<h1>Ihre Bestellungen</h1>
+	
+		<table class="table">
+		  <thead>
+			<tr>
+			  <th scope="col">#</th>
+			  <th scope="col">Artikel</th>
+			  <th scope="col">Bestellt am</th>
+			  <th scope="col">Summe</th>
+			  <th scope="col">Summe</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <th scope="row">1</th>
+			  <td>dies</td>
+			  <td>sind</td>
+			  <td>test</td>
+			  <td>daten</td>
+			</tr>
+		  </tbody>
+		</table>
+	</div>
+{% endblock %}

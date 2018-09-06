@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Artikel bearbeiten{% endblock %}
+
+{% block body %}
+<style>
+    .wrapper { margin: 1em auto; max-width: 1500px; width: 95%; font: 18px/1.5 sans-serif; }
+    .wrapper code { background: #F5F5F5; padding: 2px 6px; }
+	.vl { border-left: 1px solid gray; height: 280px; }
+</style>
+<div class="wrapper">
+	<div class="form-group row" style="position:relative; top:15px;">
+		<div class="col-sm-4">
+			<div class="form-group row">
+				<div class="col-sm-3">
+					<label for="warengrp">Bezeichnung</label>
+				</div>	
+				<div class="col-sm-9">
+					<input type="text" id="warengrp" style="float:right;" class="form-control" value="{{ Artikel.bezeichnung1 }}"/>
+				</div>	
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-3">
+					<label for="warengrp">Artikelnummer</label>
+				</div>	
+				<div class="col-sm-9">
+					<input type="text" id="warengrp" style="float:right;" class="form-control" value="{{ Artikel.artikelnummer }}"/>
+				</div>	
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-3">
+					<label for="warengrp">VPE-Bezeichnung</label>
+				</div>	
+				<div class="col-sm-9">
+					<input type="text" id="warengrp" style="float:right;" class="form-control" value="{{ Artikel.bezeichnung2 }}"/>
+				</div>	
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-3">
+					<label for="warengrp">EAN/GTIN</label>
+				</div>	
+				<div class="col-sm-9">
+					<input type="text" id="warengrp" style="float:right;" class="form-control" value="{{ Artikel.ean }}"/>
+				</div>	
+			</div>
+		</div>	
+			<div class="vl"></div><!-- -------- Vertikale Trennung I -------- -->
+		<div class="col-sm-4">
+			<div class="form-group row">
+				<div class="col-sm-6">
+					<label for="warengrp">Nettolistenpreis</label>
+				</div>	
+				<div class="col-sm-6">
+					<input type="text" id="warengrp" style="text-align: right;" class="form-control" value="{{ Artikel.listenpreis|number_format(2, ',', '.') }} &euro;"/>
+				</div>	
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-6">
+					<label for="warengrp">EK - &Oslash;</label>
+				</div>	
+				<div class="col-sm-6">
+					<input type="text" id="warengrp" style="text-align: right;" class="form-control" value="{{ Artikel.ekdurch }}"/>
+				</div>	
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-6">
+					<label for="warengrp">Mindestbestand</label>
+				</div>	
+				<div class="col-sm-6">
+					<input type="text" id="warengrp" style="text-align: right;" class="form-control" value="{{ Artikel.mindestbestand|number_format }}"/>
+				</div>	
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-6">
+					<label for="warengrp">Bestand</label>
+				</div>	
+				<div class="col-sm-6">
+					<input type="text" id="warengrp" style="text-align: right;" class="form-control" value="{{ Artikel.bestand|number_format }}"/>
+				</div>	
+			</div>
+			<div class="form-group row">
+					<div class="col-sm-6">
+						<label for="warengrp">Mindestbestellmenge</label>
+					</div>	
+					<div class="col-sm-6">
+						<input type="text" id="warengrp" style="text-align: right;" class="form-control" value="{{ Artikel.mindestbestellmenge|number_format }}"/>
+					</div>	
+				</div>
+			</div>
+		<div class="text-center col-sm-3">
+			<div class="form-group row" style=" background: #FBF2EF; height: 250px; border: 1px solid #d4d4d4; border-radius: 4px;">
+				<img src="{{ Artikel.bild }}" alt="My Logo" />
+				<img src="data:image/png;base64,{{ Artikel.bild }}" alt="" />				
+				
+			</div>
+			<div class="form-group row">
+				<div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+				  <button type="button" class="btn btn-danger"><i class="material-icons" style="vertical-align: text-top;">save</i> Speichern</button>
+				  <button type="button" class="btn btn-danger"><i class="material-icons" style="vertical-align: text-top;">delete</i> Löschen</button>
+				  <a href="javascript:self.print()"	class="btn btn-danger"><i class="material-icons" style="vertical-align: text-top;">print</i> Drucken</a>
+				  <button type="button" class="btn btn-danger"><i class="material-icons" style="vertical-align: text-top;">perm_media</i> Bild ändern</button>
+				</div>
+			</div>		
+		</div>
+	</div>
+	
+	<nav>
+	  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+		<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Grunddaten</a>
+		<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Lager</a>
+		<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Historie</a>
+	  </div>
+	</nav>
+	<div class="tab-content" id="nav-tabContent">
+		<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"> 
+		{% include('artikel/grunddaten.html.twig') %}
+		</div>
+		<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+			wurst.
+		</div>
+		<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+			Tee
+		</div>
+	</div>
+</div>
+{% endblock %}

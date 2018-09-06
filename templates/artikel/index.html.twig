@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Artikel bearbeiten{% endblock %}
+
+{% block body %}
+<style>
+    .wrapper { margin: 1em auto; max-width: 1200px; width: 95%; font: 18px/1.5 sans-serif; }
+    .wrapper code { background: #ffcccc; padding: 2px 6px; }
+	.vl { border-left: 1px solid gray; height: 280px; }
+</style>
+<div class="wrapper">
+	<div class="form-group row" style="position:relative;">			
+		<table class="table table-hover table-bordered table-sm">	<!--Artikel-->
+			<thead class="thead">
+					<tr>
+						<th scope="col" style="width: 32%">Bezeichnung</th>
+						<th scope="col" style="width: 32%">Betrag</th>
+						<th scope="col" style="width: 32%">Rechnungsdatum</th>
+						<th scope="col" ></th>
+					</tr>
+			</thead>
+			<tbody>
+				{% for einArtikel in Artikel %}
+					<tr>
+						<td>{{ einArtikel.bezeichnung1 }}</td>
+						<td></td>			
+						<td></td>			
+						<td><a href="artikel/bearbeiten" class="btn btn-danger" role="button" id="{{ einArtikel.id }}"><i class="material-icons">edit</i></a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		
+		
+
+
+
+		
+	</div>
+</div>
+{% endblock %}

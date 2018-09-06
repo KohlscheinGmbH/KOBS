@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <body>
+		<style>
+		.navbar-custom {
+			background-color:#E00018;
+		}
+
+		/* change the brand and text color */
+		.navbar-custom .navbar-brand,
+		.navbar-custom .navbar-text {
+			color: #ffffff;font-size:25px;
+		}
+
+		/* change the link color */
+		.navbar-custom .navbar-nav .nav-link {
+			color: rgba(255,255,255,.5);
+		}
+
+		/* change the color of active or hovered links */
+		.navbar-custom .nav-item.active .nav-link,
+		.navbar-custom .nav-item:hover .nav-link {
+			color: #ffffff;
+		}
+
+		/* for dropdown only - change the color of droodown */
+		.navbar-custom .dropdown-menu {
+			background-color: #E00018;
+		}
+		.navbar-custom .dropdown-item {
+			color: #ffffff;
+		}
+		.navbar-custom .dropdown-item:hover,
+		.navbar-custom .dropdown-item:focus {
+			color: #333333;
+			background-color: #f72a2a;
+		}
+		</style>	
+        <nav class="navbar navbar-expand-sm navbar-custom">
+            <a href="#" class="navbar-brand" ><b>KOBS</b></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCustom" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExample03">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/menu">Dashboard <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="dropdown">		<!-- Stammdaten -->
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Stammdaten</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown03">
+                            <a class="dropdown-item" href="/artikel">Artikel</a>				
+                        </div>
+                    </li>
+					<li class="dropdown">		<!-- Beschaffung -->
+                        <a class="nav-link dropdown-toggle" href="/" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Beschaffung</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown03">
+                            <a class="dropdown-item" href="/bestellung">Bestellung</a>				
+                        </div>
+                    </li>
+                </ul>		
+                <form class="form-inline my-2 my-md-0">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="dropdown">
+                            <li class="dropdown"><a href="/" class="nav-link dropdown-toggle" data-toggle="dropdown">Willkommen, {{ app.user.username }}<b class="caret"></b></a></a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a class="dropdown-item" href="{{path ('benutzer')}}"><i class="material-icons" style="vertical-align: text-top;">settings</i> Einstellungen</a></li>
+                                    <li><a class="dropdown-item" href="edvkontakt"><i class="material-icons" style="vertical-align: text-top;">email</i> EDV kontaktieren</a></li>
+                                    <li><hr/></li>
+                                    <li><a class="dropdown-item" href="{{path ('logout')}}"><i class="material-icons" style="vertical-align: text-top;">exit_to_app</i> Abmelden</a> </li>
+                                </ul>
+                            </li>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </nav>          
+    </body>
+</html>
